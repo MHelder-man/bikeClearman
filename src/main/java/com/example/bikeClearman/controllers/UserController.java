@@ -30,8 +30,6 @@ public class UserController {
         return userService.findFirstByUserNameAndPassword(user.getUserName(), user.getPassword()).orElseThrow(() -> new Exception("Geen gebruiker gevonden"));
 
     }
-
-
     @GetMapping("/user")
     Iterable<User> findAll(){
         return userService.findAll();
