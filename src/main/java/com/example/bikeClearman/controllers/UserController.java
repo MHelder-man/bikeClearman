@@ -1,12 +1,14 @@
 package com.example.bikeClearman.controllers;
 
 
+import com.example.bikeClearman.model.BikeClear;
 import com.example.bikeClearman.model.User;
 import com.example.bikeClearman.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -28,8 +30,13 @@ public class UserController {
     @PostMapping("/login")
     User login(@RequestBody User user) throws Exception {
         return userService.findFirstByUserNameAndPassword(user.getUserName(), user.getPassword()).orElseThrow(() -> new Exception("Geen gebruiker gevonden"));
-
     }
+
+    @GetMapping("/bike-user/{id}")
+    Optional<User> findById(@PathVariable Integer id) {
+        return userService.findById(id);
+    }
+
     @GetMapping("/user")
     Iterable<User> findAll(){
         return userService.findAll();

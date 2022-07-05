@@ -1,7 +1,9 @@
 package com.example.bikeClearman.controllers;
 
 import com.example.bikeClearman.model.BikeClear;
+import com.example.bikeClearman.model.User;
 import com.example.bikeClearman.services.BikeClearService;
+import com.example.bikeClearman.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
